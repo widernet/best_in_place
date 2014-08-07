@@ -1,5 +1,6 @@
 module BestInPlace
   module TestHelpers
+    
     include ActionView::Helpers::JavaScriptHelper
 
     def bip_area(model, attr, new_value)
@@ -7,7 +8,6 @@ module BestInPlace
       page.execute_script <<-JS
         jQuery("##{id}").click();
         jQuery("##{id} form textarea").val('#{escape_javascript new_value.to_s}');
-        jQuery("##{id} form textarea").blur();
         jQuery("##{id} form textarea").blur();
       JS
     end
